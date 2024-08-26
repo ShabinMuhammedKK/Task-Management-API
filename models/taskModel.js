@@ -18,7 +18,7 @@ const taskSchema = new Schema({
   assignedToModel: {
     type: String,
     required: true,
-    enum: ['User', 'Team'],
+    enum: ['user', 'team'],
   },
   status: {
     type: String,
@@ -29,10 +29,6 @@ const taskSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'User',
     required: true,
-  },
-  updatedBy: {
-    type: Schema.Types.ObjectId,
-    ref: 'User',
   },
   dueDate: {
     type: Date,

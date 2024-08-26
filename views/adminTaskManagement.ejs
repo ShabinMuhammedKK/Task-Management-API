@@ -1,0 +1,36 @@
+<%- include("partials/header.ejs")-%>
+<h1 style="color: red">Admin Dashboard</h1>
+<div style="display: flex; flex-direction: row">
+  <ul>
+    <a href="/api/user/admin-home">Home</a>
+  </ul>
+  <ul>
+    <a href="/api/user/admin-team">Team management</a>
+  </ul>
+  <ul>
+    <a href="/api/user/admin-task">Task management</a>
+  </ul>
+</div>
+
+<div class="container">
+  <h2 style="color: blue;">Task Management</h2>
+
+  <!-- Form to add a new team -->
+  <div class="team-form">
+    <h2>Add Tasks</h2>
+    <form action="/api/teams" method="POST" style="display: flex;flex-direction: column;width: 20%; padding: 10px;">
+      <input type="text" name="title" placeholder="Team title" required />
+      <input type="text" name="description" placeholder="Description" />
+      <input type="text" name="assignedToModel" placeholder="User or Team" />
+      <input type="text" name="assignedTo" placeholder="assignedTo id" />
+      <input type="text" name="dueDate" placeholder="dueDate" />
+      <button type="submit">Add Task</button>
+    </form>
+  </div>
+
+  <!-- List of existing teams with delete option -->
+  <div class="team-list">
+    <h2>Existing Tasks</h2>
+  </div>
+</div>
+<%- include("partials/footer.ejs")-%>

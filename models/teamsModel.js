@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
+const Task = require("./taskModel");
+var Schema = mongoose.Schema;
 
-const teamSchema = mongoose.Schema({
+const teamSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -10,6 +12,12 @@ const teamSchema = mongoose.Schema({
     type: String,
     default:"",
   },
+  tasks: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Task",
+    },
+  ],
   members: [
     {
       type: Schema.Types.ObjectId,
@@ -20,5 +28,5 @@ const teamSchema = mongoose.Schema({
     timestamps:true,
 });
 
-const Team = mongoose.Model("Team", teamSchema);
+const Team = mongoose.model("Team",teamSchema);
 module.exports = Team;
